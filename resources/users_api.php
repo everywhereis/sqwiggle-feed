@@ -1,10 +1,10 @@
 <?php
 require_once('config.php');
-$config = new Config();
+$config = new Config;
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-curl_setopt($ch, CURLOPT_USERPWD, $config->getSecret());
+curl_setopt($ch, CURLOPT_USERPWD, Config::$secret);
 curl_setopt($ch, CURLOPT_URL, "https://api.sqwiggle.com/users");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_TIMEOUT, '3');
