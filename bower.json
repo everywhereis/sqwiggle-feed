@@ -1,0 +1,22 @@
+{
+  "name": "sqwiggle-feed",
+  "version": "0.0.1",
+  "homepage": "https://github.com/everywhereis/sqwiggle-feed",
+  "authors": [
+    "Jordy van Kuijk <jvankuijk@me.com>"
+  ],
+  "description": "Get the Sqwiggle Feed on your mobile.",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.11"
+  }
+}
