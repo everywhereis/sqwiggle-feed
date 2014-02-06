@@ -1,7 +1,10 @@
 <?php
+require_once('config.php');
+$config = new Config();
+
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-curl_setopt($ch, CURLOPT_USERPWD, "[KEY_HERE]:X");
+curl_setopt($ch, CURLOPT_USERPWD, $config->getSecret());
 curl_setopt($ch, CURLOPT_URL, "https://api.sqwiggle.com/users");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_TIMEOUT, '3');
@@ -19,6 +22,5 @@ foreach ($data as $id => $value) {
 	if($value->status == 'available'){
 	echo '<li class="menu-item-divided pure-menu-available" ><a href="#">' . $value->name . '</a></li>';
 	}
-	
 }
 ?>
