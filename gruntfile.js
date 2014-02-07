@@ -23,6 +23,12 @@ module.exports = function(grunt) {
             	options: {
             		livereload: true
             	}
+            },
+            html: {
+                files: ['*.html', 'public/views/*.html'],
+                options: {
+                    livereload: true
+                }
             }
         },
         concurrent: {
