@@ -1,5 +1,5 @@
 
-<section ng-controller="FeedController" ng-init="getMessages()">
+<section ng-controller="FeedController" ng-init="getMessages(); getUsers()">
 	<div id="layout" ng-class="menuactive ? 'active' :''">
 		<!-- Menu toggle -->
 		<a id="menuLink" class="menu-link" ng-class="menuactive ? 'active' :''" ng-click="togglemenu()">
@@ -8,9 +8,11 @@
 		</a>
 		<div id="menu" ng-class="menuactive ? 'active' :''">
 			<div class="pure-menu pure-menu-open">
-				<a  href="#">Team</a>
+				<a  href="#">Team</a> 
 				<ul>
-				Users	
+				<div ng-repeat="user in users"> 
+					{{user.name}}
+				</div>
 				</ul>
 			</div>
 		</div>
@@ -21,7 +23,7 @@
 			</div>
 			<div class="content">
 				<div ng-repeat="message in messages"> 
-					{{message.text}}
+					{{message.id}}
 					<hr>
 				</div>
 			</div>
