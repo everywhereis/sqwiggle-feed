@@ -1,6 +1,5 @@
 <?php
 require_once('config.php');
-$config = new Config;
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
