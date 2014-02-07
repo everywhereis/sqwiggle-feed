@@ -11,7 +11,9 @@
 				<a  href="#">Team</a> 
 				<ul>
 				<div ng-repeat="user in users"> 
-					{{user.name}}
+				<li class="menu-item-divided pure-menu-offline" ng-if="user.status == 'offline'" ><a href="#">{{user.name}}</a></li>
+				<li class="menu-item-divided pure-menu-online" ng-if="user.status == 'online'" ><a href="#">{{user.name}}</a></li>
+				<li class="menu-item-divided pure-menu-busy" ng-if="user.status == 'busy'" ><a href="#">{{user.name}}</a></li>
 				</div>
 				</ul>
 			</div>
@@ -22,9 +24,48 @@
 				<h2>Everywhere Room</h2>
 			</div>
 			<div class="content">
+				<!-- Messages -->
 				<div ng-repeat="message in messages"> 
-					{{message.id}}
-					<hr>
+					<!-- Avatar - Name -->
+					<div id="nm" ng-if="message.text" >
+						<img class="avatar" src={{message.author.avatar}} alt="avatar" />
+						{{message.author.name}}
+					</div>
+					<!-- Messages Text -->
+					<div id="msg" ng-if="message.type=='message'">
+						{{message.text}}
+						<div ng-if="message.attachments"> 
+							<a href={{message.attachments[0].url}} ><div class="attachment">
+									<div class="attachment_image" ng-if="message.attachments[0].image">
+										<img src={{message.attachments[0].image}} />
+									</div>
+									<div class="attachment_title">
+										{{message.attachments[0].title}}
+									</div>
+									<div class="attachment_desciption">
+										{{message.attachments[0].description}}
+									</div>
+								</div>
+							</a>
+						</div>
+					</div> 
+					<!-- Conversation Text -->
+					<div ng-if="message.conversation">
+						<div id="convomsg">
+						Conversation {{message.conversation.status}} between
+							<div style="height: 2.5em;" >
+								<img class="avatar" src={{participants.avatar}} alt="avatar" ng-repeat="participants in message.conversation.participated"  />
+							</div>
+							
+						</div>
+					</div>
+					<!-- Github Text -->
+					<div ng-if="message.type=='html'" >
+						<div id="apimsg"  >
+						Git Hub Commit
+						<div class="clear"></div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
