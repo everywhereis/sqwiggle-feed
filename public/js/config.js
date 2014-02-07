@@ -5,7 +5,7 @@ angular.module('sqwiggle-feed').config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
         when('/feed', {
-            templateUrl: 'public/views/index.html'
+            templateUrl: 'public/views/feed.html'
         }).
        	when('/', {
             templateUrl: 'public/views/index.html'
