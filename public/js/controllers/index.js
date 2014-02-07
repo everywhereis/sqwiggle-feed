@@ -12,5 +12,5 @@ angular.module('sqwiggle-feed.system').controller('IndexController', ['$scope', 
     		}
     		$scope.dots = dots;
     	}, 500);
-    }
+	}
 }]);

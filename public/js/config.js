@@ -1,8 +1,11 @@
 'use strict';
 
 //Setting up route
-angular.module('sqwiggle-feed').config(['$routeProvider',
-    function($routeProvider) {
+angular.module('sqwiggle-feed').config(['$routeProvider', '$httpProvider',
+    function($routeProvider, $httpProvider) {
+
+        delete $httpProvider.defaults.headers.common["X-Requested-With"]
+
         $routeProvider.
         when('/feed', {
             templateUrl: 'public/views/feed.html'

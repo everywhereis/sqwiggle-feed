@@ -1,5 +1,5 @@
 
-<section ng-controller="FeedController">
+<section ng-controller="FeedController" ng-init="getMessages()">
 	<div id="layout" ng-class="menuactive ? 'active' :''">
 		<!-- Menu toggle -->
 		<a id="menuLink" class="menu-link" ng-class="menuactive ? 'active' :''" ng-click="togglemenu()">
@@ -20,7 +20,10 @@
 				<h2>Everywhere Room</h2>
 			</div>
 			<div class="content">
-				message 
+				<div ng-repeat="message in messages"> 
+					{{message.text}}
+					<hr>
+				</div>
 			</div>
 		</div>
 	</div>
