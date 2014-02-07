@@ -156,7 +156,7 @@
 
 <div id="layout">
     <!-- Menu toggle -->
-    <a href="#menu" id="menuLink" class="menu-link">
+    <a id="menuLink" class="menu-link">
         <!-- Hamburger icon -->
         <span></span>
     </a>
