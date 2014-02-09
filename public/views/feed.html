@@ -28,7 +28,7 @@
 				<div ng-repeat="message in messages"> 
 					<!-- Avatar - Name -->
 					<div id="nm" ng-if="message.text" >
-						<img class="avatar" src={{message.author.avatar}} alt="avatar" />
+						<img class="avatar" ng-src={{message.author.avatar}} alt="avatar" />
 						{{message.author.name}}
 					</div>
 					<!-- Messages Text -->
@@ -37,7 +37,7 @@
 						<div ng-if="message.attachments"> 
 							<a href={{message.attachments[0].url}} ><div class="attachment">
 									<div class="attachment_image" ng-if="message.attachments[0].image">
-										<img src={{message.attachments[0].image}} />
+										<img ng-src={{message.attachments[0].image}} />
 									</div>
 									<div class="attachment_title">
 										{{message.attachments[0].title}}
@@ -54,7 +54,7 @@
 						<div id="convomsg">
 						Conversation {{message.conversation.status}} between
 							<div style="height: 2.5em;" >
-								<img class="avatar" src={{participants.avatar}} alt="avatar" ng-repeat="participants in message.conversation.participated"  />
+								<img class="avatar" ng-src={{participants.avatar}} alt="avatar" ng-repeat="participants in message.conversation.participated"  />
 							</div>
 							
 						</div>
