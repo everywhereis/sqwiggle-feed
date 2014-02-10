@@ -20,7 +20,9 @@
     "angular": "~1.2.11",
     "angular-resource": "~1.2.11",
     "angular-route": "~1.2.11",
-    "angular-sanitize": "~1.2.12"
+    "angular-sanitize": "~1.2.12",
+    "jquery": "~2.1.0",
+    "ngInfiniteScroll": "~1.0.0"
   },
   "resolutions": {
     "angular": "~1.2.11"

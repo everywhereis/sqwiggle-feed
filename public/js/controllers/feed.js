@@ -4,17 +4,23 @@ angular.module('sqwiggle-feed.system').controller('FeedController', ['$scope', '
 	$scope.messages = [];
 	$scope.users = [];
 	$scope.menuactive = false;
+	$scope.page = 0;
+	$scope.limit = 15;
 	$scope.togglemenu = function(){
 		$scope.menuactive = !$scope.menuactive;
 	}
 	$scope.getMessages = function() {
 		$http.get('http://www.everywhere.is/making/sqwiggle/resources/api.php', {
     		params: {
-    			endpoint: 'messages'
-    		}
+    			endpoint: 'messages',
+    			page: $scope.page,
+    			limit: $scope.limit
+    		}, 
     	}).success(function(e) {
-    		console.log(e);
-    		$scope.messages = e;
+    		for(var i in e) {
+    			var message = e[i];
+    			$scope.messages.push(message);
+    		}
     	});
 	}
 	$scope.getUsers = function() {
@@ -23,11 +29,11 @@ angular.module('sqwiggle-feed.system').controller('FeedController', ['$scope', '
     			endpoint: 'users'
     		}
     	}).success(function(e) {
-    		console.log(e);
     		$scope.users = e;
     	});
 	}
 	$scope.loadMore = function(){
-	alert("loading more");
+		$scope.page ++;
+		$scope.getMessages();
 	}
 }]);

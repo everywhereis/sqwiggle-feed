@@ -1,5 +1,5 @@
 <?php
-require_once 'resources/config.php';
+require_once 'config.php';
 
 header('Cache-Control: no-cache, must-revalidate');
 header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
@@ -14,8 +14,18 @@ class API {
 
 	public function API() {
 		$endpoint = isset($_GET['endpoint']) ? $_GET['endpoint'] : null;
+		$page = isset($_GET['page']) ? $_GET['page'] : null;
+		$limit = isset($_GET['limit']) ? $_GET['limit'] : null;
 		if($endpoint != null) {
-			echo $this->curl($this->url.$endpoint);
+			$url = $this->url.$endpoint;
+			if($page != null && $limit != null) {
+				$url .= "?page=$page&limit=$limit";
+			} else if($page != null) {
+				$url .= "?page=$page";
+			} else if($limit != null) {
+				$url .= "?limit=$limit";
+			}
+			echo $this->curl($url);
 		}
 	}
 
