@@ -4,6 +4,7 @@ angular.module('sqwiggle-feed',
 	['ngResource', 
 	'ngRoute',
 	'ngSanitize',
+	'infinite-scroll',
 	'sqwiggle-feed.users',
 	'sqwiggle-feed.system',
 	'sqwiggle-feed.filters']);

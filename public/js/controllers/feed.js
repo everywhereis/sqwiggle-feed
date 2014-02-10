@@ -27,4 +27,7 @@ angular.module('sqwiggle-feed.system').controller('FeedController', ['$scope', '
     		$scope.users = e;
     	});
 	}
+	$scope.loadMore = function(){
+	alert("loading more");
+	}
 }]);
