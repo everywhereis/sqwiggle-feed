@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('sqwiggle-feed.system').controller('IndexController', ['$scope', '$interval', '$http', function ($scope, $interval, $http) {
+angular.module('sqwiggle-feed.system').controller('IndexController', ['$scope', '$interval', '$timeout', '$location', '$http', 
+	function ($scope, $interval, $timeout, $location, $http) {
     $scope.dots = '...';
     $scope.animateDots = function() {
     	var dots = $scope.dots;
@@ -12,5 +13,9 @@ angular.module('sqwiggle-feed.system').controller('IndexController', ['$scope', 
     		}
     		$scope.dots = dots;
     	}, 500);
+
+    	$timeout(function() {
+    		$location.path('feed');
+    	}, 2000)
 	}
 }]);
