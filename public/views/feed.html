@@ -9,12 +9,10 @@
 		<div id="menu" ng-class="menuactive ? 'active' :''">
 			<div class="pure-menu pure-menu-open">
 				<a  href="#">Team</a> 
-				<ul>
-				<div ng-repeat="user in users"> 
-				<li class="menu-item-divided pure-menu-offline" ng-if="user.status == 'offline'" ><a href="#">{{user.name}}</a></li>
-				<li class="menu-item-divided pure-menu-online" ng-if="user.status == 'online'" ><a href="#">{{user.name}}</a></li>
-				<li class="menu-item-divided pure-menu-busy" ng-if="user.status == 'busy'" ><a href="#">{{user.name}}</a></li>
-				</div>
+				<ul ng-repeat="user in users">
+					<li class="menu-item-divided pure-menu-offline" ng-if="user.status == 'offline'" ><a href="#">{{user.name}}</a></li>
+					<li class="menu-item-divided pure-menu-online" ng-if="user.status == 'online'" ><a href="#">{{user.name}}</a></li>
+					<li class="menu-item-divided pure-menu-busy" ng-if="user.status == 'busy'" ><a href="#">{{user.name}}</a></li>
 				</ul>
 			</div>
 		</div>
@@ -61,7 +59,8 @@
 					</div>
 					<!-- Github Text -->
 					<div ng-if="message.type=='html'" >
-						<div id="apimsg"  >
+						<div id="apimsg">
+						<div ng-bind-html="message.text | unsafe"></div>
 						Git Hub Commit
 						<div class="clear"></div>
 						</div>

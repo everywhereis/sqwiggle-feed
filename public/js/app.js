@@ -2,9 +2,12 @@
 
 angular.module('sqwiggle-feed', 
 	['ngResource', 
-	'ngRoute', 
+	'ngRoute',
+	'ngSanitize',
 	'sqwiggle-feed.users',
-	'sqwiggle-feed.system']);
+	'sqwiggle-feed.system',
+	'sqwiggle-feed.filters']);
 
 angular.module('sqwiggle-feed.users', []);
 angular.module('sqwiggle-feed.system', []);
+angular.module('sqwiggle-feed.filters', []);
