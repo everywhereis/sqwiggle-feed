@@ -42,10 +42,14 @@
 									</div>
 									<div class="attachment_desciption">
 										{{message.attachments[0].description}}
+										<span></span>
 									</div>
 								</div>
 							</a>
 						</div>
+						<div class="clear"></div>
+							<div class="timestamp">{{message.created_at | amCalendar}}</div>
+						<div class="clear"></div>
 					</div> 
 					<!-- Conversation Text -->
 					<div ng-if="message.conversation">
@@ -54,7 +58,9 @@
 							<div style="height: 2.5em;" >
 								<img class="avatar" ng-src={{participants.avatar}} alt="avatar" ng-repeat="participants in message.conversation.participated"  />
 							</div>
-							
+							<div class="clear"></div>
+								<div class="timestamp">{{message.created_at | amCalendar}}</div>
+							<div class="clear"></div>	
 						</div>
 					</div>
 					<!-- Github Text -->
@@ -62,8 +68,12 @@
 						<div id="apimsg">
 							<div ng-bind-html="message.text | unsafe"></div>
 							<div class="clear"></div>
+								<div class="timestamp">{{message.created_at | amCalendar}}</div>
+							<div class="clear"></div>
 						</div>
+						
 					</div>
+					
 				</div>
 			</div>
 		</div>
