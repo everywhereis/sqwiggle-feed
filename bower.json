@@ -22,7 +22,8 @@
     "angular-route": "~1.2.11",
     "angular-sanitize": "~1.2.12",
     "jquery": "~2.1.0",
-    "ngInfiniteScroll": "~1.0.0"
+    "ngInfiniteScroll": "~1.0.0",
+    "angular-moment": "~0.6.2"
   },
   "resolutions": {
     "angular": "~1.2.11"
