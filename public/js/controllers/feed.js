@@ -1,14 +1,17 @@
   'use strict';
 
-angular.module('sqwiggle-feed.system').controller('FeedController', ['$scope', '$http', function ($scope, $http) {
+angular.module('sqwiggle-feed.system').controller('FeedController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
+	
 	$scope.messages = [];
 	$scope.users = [];
 	$scope.menuactive = false;
 	$scope.page = 1;
-	$scope.limit = 15;
+	$scope.limit = 25;
+
 	$scope.togglemenu = function(){
 		$scope.menuactive = !$scope.menuactive;
 	}
+
 	$scope.getMessages = function() {
 		$http.get('resources/api.php', {
     		params: {
@@ -21,8 +24,13 @@ angular.module('sqwiggle-feed.system').controller('FeedController', ['$scope', '
     			var message = e[i];
     			$scope.messages.push(message);
     		}
+    		if($scope.page == 1)
+    			$scope.page ++;
+    	}).error(function(e){
+    		$location.path('install');
     	});
 	}
+
 	$scope.getUsers = function() {
 		$http.get('resources/api.php', {
     		params: {
@@ -31,8 +39,11 @@ angular.module('sqwiggle-feed.system').controller('FeedController', ['$scope', '
 			
     	}).success(function(e) {
     		$scope.users = e;
+    	}).error(function(e){
+    		$location.path('install');
     	});
 	}
+
 	$scope.loadMore = function(){
 		$scope.page ++;
 		$scope.getMessages();

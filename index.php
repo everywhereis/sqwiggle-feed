@@ -5,9 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="A layout example with a side menu that hides on mobile, just like the Pure website.">
 		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-		
 		    <title>Everywhere Sqwiggle Room</title>
-			
 		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
 	    <!--[if lte IE 8]>
 	        <link rel="stylesheet" href="public/css/side-menu-old-ie.css">
@@ -49,6 +47,7 @@
 		<!-- Application Controllers -->
 		<script type="text/javascript" src="public/js/controllers/index.js"></script>
 		<script type="text/javascript" src="public/js/controllers/feed.js"></script>
+		<script type="text/javascript" src="public/js/controllers/install.js"></script>
 		<!-- Application Controllers -->
 		<script type="text/javascript" src="public/js/init.js"></script>
 		<script type="text/javascript" src="http://localhost:35729/livereload.js"></script>

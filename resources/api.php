@@ -16,6 +16,9 @@ class API {
 	* Constructor
 	**/
 	public function API() {
+
+		new Config();
+
 		switch ($_SERVER['REQUEST_METHOD']) {
 			case "GET": {
 				$endpoint = isset($_GET['endpoint']) ? $_GET['endpoint'] : null;
@@ -32,6 +35,8 @@ class API {
 						$url .= "?limit=$limit";
 					}
 					echo $this->curl($url);
+				} else {
+					header(':', true, 404);
 				}
 				break;
 			}
@@ -44,6 +49,9 @@ class API {
 				}
 				break;
 			}
+			default: {
+				header(':', true, 404);
+			}
 		}
 	}
 
@@ -53,7 +61,7 @@ class API {
 	private function curl($url) {
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-		curl_setopt($ch, CURLOPT_USERPWD, Config::$secret);
+		curl_setopt($ch, CURLOPT_USERPWD, Config::getAppSecret());
 		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($ch, CURLOPT_TIMEOUT, '3');
@@ -68,7 +76,7 @@ class API {
 	private function curlPost($url, $data) {
 		$curl = curl_init();
 		curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-		curl_setopt($curl, CURLOPT_USERPWD, Config::$secret);
+		curl_setopt($curl, CURLOPT_USERPWD, Config::getAppSecret());
 		curl_setopt($curl, CURLOPT_URL, $url);
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($curl, CURLOPT_POST, true);
