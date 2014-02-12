@@ -10,7 +10,7 @@ angular.module('sqwiggle-feed.system').controller('FeedController', ['$scope', '
 		$scope.menuactive = !$scope.menuactive;
 	}
 	$scope.getMessages = function() {
-		$http.get('http://www.everywhere.is/making/sqwiggle/resources/api.php', {
+		$http.get('/resources/api.php', {
     		params: {
     			endpoint: 'messages',
     			page: $scope.page,
@@ -24,7 +24,7 @@ angular.module('sqwiggle-feed.system').controller('FeedController', ['$scope', '
     	});
 	}
 	$scope.getUsers = function() {
-		$http.get('http://www.everywhere.is/making/sqwiggle/resources/api.php', {
+		$http.get('resources/api.php', {
     		params: {
     			endpoint: 'users'
     		}
