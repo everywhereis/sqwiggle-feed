@@ -25,22 +25,22 @@
 				<!-- SHOW DATA FROM INPUTS AS THEY ARE BEING TYPED -->
 			<div class="content" infinite-scroll="loadMore()" >
 			<!-- FORM -->
-				<form ng-submit="postMessage()">
-					<!-- NAME -->
-					
+				<form ng-submit="postMessage()">					
 					<!-- SUPERHERO NAME -->
 					<div id="superhero-group" class="pure-form"> 
 						<fieldset>
+						<!-- SUBMIT BUTTON -->
 							<input type="text" name="text" class="pure-input-1" placeholder="Post to the swiggle chat" ng-model="formData.text">
 							<button type="submit" class="btn btn-success btn-lg btn-block pure-button pure-input-1 pure-button-primary">
 							 Submit!
 							</button>
 						</fieldset>
 					</div>
-
-					<!-- SUBMIT BUTTON -->
-					
 				</form>
+				<div class="pure-form"> 
+				<button type="submit" class="pure-button pure-input-1" name="refresh">
+					Refresh Feed
+				</div>
 				<!-- Messages -->
 				<div ng-repeat="message in messages"> 
 					<!-- Avatar - Name -->
