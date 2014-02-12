@@ -10,7 +10,7 @@ angular.module('sqwiggle-feed.system').controller('FeedController', ['$scope', '
 		$scope.menuactive = !$scope.menuactive;
 	}
 	$scope.getMessages = function() {
-		$http.get('/resources/api.php', {
+		$http.get('resources/api.php', {
     		params: {
     			endpoint: 'messages',
     			page: $scope.page,
