@@ -31,23 +31,26 @@ angular.module('sqwiggle-feed.system').controller('FeedController', ['$scope', '
 			
     	}).success(function(e) {
     		$scope.users = e;
-			
     	});
 	}
 	$scope.loadMore = function(){
 		$scope.page ++;
 		$scope.getMessages();
-	}  
-	$scope.processForm = function() {
-	
-	$http({
-        method  : 'POST',
-        url     : 'http://www.everywhere.is/making/sqwiggle/resources/post_api.php',
-        data    : $.param($scope.formData),  
-        headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  // set the headers so angular passing info as form data (not request payload)
-    })
-        .success(function(e) {
-				console.log($scope.formData);
+	}
+
+	$scope.postMessage = function() {
+		var payload = {
+			endpoint: 'messages',
+			data: $scope.formData
+		};
+		
+		$http({
+	        method  : 'POST',
+	        url     : 'resources/api.php',
+	        data    : $.param(payload),  
+	        headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  // set the headers so angular passing info as form data (not request payload)
+	    }).success(function(e) {
+	    	$scope.messages.unshift(e);
         });
 	};
 }]);
