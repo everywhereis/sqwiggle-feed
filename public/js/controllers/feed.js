@@ -24,8 +24,6 @@ angular.module('sqwiggle-feed.system').controller('FeedController', ['$scope', '
     			var message = e[i];
     			$scope.messages.push(message);
     		}
-    		if($scope.page == 1)
-    			$scope.page ++;
     	}).error(function(e){
     		$location.path('install');
     	});

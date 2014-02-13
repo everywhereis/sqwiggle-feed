@@ -10,6 +10,7 @@
 				header(':', true, 200);
 			} else {
 				header(':', true, 500);
+				echo "Could not save your settings. Please verify that your resources/files/ directory is writable.";
 			}
 		}
 	} else {
