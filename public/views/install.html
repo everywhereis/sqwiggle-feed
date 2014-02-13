@@ -1,9 +1,21 @@
 <div class="content">
-	<h2>Sqwiggle Feed</h2>
-	<h4>Welcome!</h4>
-	<p>You're one step away from using the app. Please fill in your Sqwiggle Api below.</p>
-	<form class="pure-form" ng-submit="saveConfig()">
-		<input name="api_secret" type="text" id="api_secret" placeholder="paste api secret here..." ng-model="settings.API_SECRET"/>
-		<button class="pure-button" type="submit">GO</button>
-	</form>
+	<h2>Sqwiggle Feed</h2>	
+	<fieldset>
+	    <legend>Setup</legend>
+		<p>You're one step away from using the app. Please fill in your Sqwiggle Api below and make sure that you have created the
+		directory <b>/resources/files/</b> that is writable by your server.</p>
+		<form class="pure-form" ng-submit="saveConfig()" autocomplete="off">
+			<fieldset>
+		        <legend>Sqwiggle API Secret</legend>
+				<input class="pure-input-1-3" name="api_secret" type="text" id="api_secret" placeholder="cli_daa8basfd2341234h1i2uh1i23" ng-model="settings.API_SECRET" autofocus="autofocus"/>
+				<button class="pure-button pure-button-primary" type="submit">GO</button>
+			</fieldset>
+		</form>
+		<div class="pure-warning">
+			<blockquote class="error">
+				{{error}}
+			</blockquote>
+		</div>
+		For more information, check: <a href="https://github.com/everywhereis/sqwiggle-feed" target="_blank">Sqwiggle-Feed on GitHub</a>
+	</fieldset>
 </div>

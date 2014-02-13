@@ -17,7 +17,7 @@ angular.module('sqwiggle-feed.system').controller('InstallController', ['$scope'
 		    }).success(function(e) {
 		    	$location.path('index');
 	        }).error(function(e) {
-	        	alert('An error occured:' + e);
+	        	$scope.error = e;
 	        });
     	}
 }]);
