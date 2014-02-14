@@ -22,9 +22,11 @@ angular.module('sqwiggle-feed.system').controller('FeedController', ['$scope', '
     			endpoint: 'rooms',
     		}, 
     	}).success(function(rooms) {
-    		$scope.room = rooms.length > 0 ? rooms.pop() : null;
+    		if(Object.prototype.toString.call(rooms) === '[object Array]') {
+    			$scope.room = rooms.length > 0 ? rooms.pop() : null;
+    		}
     	}).error(function(e){
-    		console.error('could not fetch rooms...');
+    		console.log('could not fetch rooms...');
     	});
 	}
 
@@ -50,11 +52,14 @@ angular.module('sqwiggle-feed.system').controller('FeedController', ['$scope', '
     		} else {
     			for(var i in e) {
 	    			var message = e[i];
-	    			$scope.messages.push(message);
+	    			// check if the messages variable is an array
+	    			if(Object.prototype.toString.call($scope.messages) === '[object Array]') {
+	    				$scope.messages.push(message);
+	    			}
 	    		}
     		}
     		if(!$scope.isPolling) {
-    			$scope.startPolling();
+    			$timeout($scope.startPolling, 5000);
     		}
     	}).error(function(e){
     		$location.path('install');
