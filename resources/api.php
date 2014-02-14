@@ -64,6 +64,7 @@ class API {
 		curl_setopt($ch, CURLOPT_USERPWD, Config::getAppSecret());
 		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);     
 		curl_setopt($ch, CURLOPT_TIMEOUT, '3');
 		$content = trim(curl_exec($ch));
 		curl_close($ch);
@@ -79,6 +80,7 @@ class API {
 		curl_setopt($curl, CURLOPT_USERPWD, Config::getAppSecret());
 		curl_setopt($curl, CURLOPT_URL, $url);
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);     
 		curl_setopt($curl, CURLOPT_POST, true);
 		curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
 		$curl_response = curl_exec($curl);
