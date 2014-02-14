@@ -1,7 +1,8 @@
 
-:![](https://raw2.github.com/everywhereis/sqwiggle-feed/master/sqwigglefeed.PNG):
+![](https://raw2.github.com/everywhereis/sqwiggle-feed/master/sqwigglefeed.PNG)
 
  #Sqwiggle Feed
+ 
  Ever wanted to access your sqwiggle based office on the go?
  Ever wanted to have a peek into the office without actually entering it?
  
