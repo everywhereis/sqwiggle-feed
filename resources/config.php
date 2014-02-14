@@ -7,7 +7,7 @@
 			// read the contents of the settings file
 			$this->settings = $this->readSettings();
 			if($this->needsInstall()) {
-				$this->throwInteralError();
+				$this->throwUnAuthorizedHeader();
 			}
 		}
 
@@ -46,8 +46,9 @@
 				|| $this->API_SECRET == '';
 		}
 
-		private function throwInteralError() {
+		private function throwUnAuthorizedHeader() {
 			header(':', true, 401);
+			echo "Unauthorized.";
 		}
 	}
 ?>
