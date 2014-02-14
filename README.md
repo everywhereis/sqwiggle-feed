@@ -28,7 +28,7 @@ Well sqwiggle feed is here to help you out!
   *" In order to use the Sqwiggle API you'll first need to create a client and generate a token, you can do so here: https://www.sqwiggle.com/company/clients. "*
   - Done :)
   
-#credits
+#Credits
 
  - kukiwon
  - everywhereis
