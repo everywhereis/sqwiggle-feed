@@ -7,7 +7,9 @@ angular.module('sqwiggle-feed.system').controller('FeedController', ['$scope', '
 	$scope.menuactive = false;
 	$scope.page = 1;
 	$scope.limit = 25;
-	$scope.room = {};
+	$scope.room = {
+		name: 'loading...'
+	};
 	$scope.isPolling = false;
 
 	$scope.togglemenu = function(){
@@ -27,7 +29,6 @@ angular.module('sqwiggle-feed.system').controller('FeedController', ['$scope', '
 	}
 
 	$scope.getMessages = function(replace) {
-
 		var page = $scope.page;
 		var limit = $scope.limit;
 
@@ -42,7 +43,7 @@ angular.module('sqwiggle-feed.system').controller('FeedController', ['$scope', '
     			endpoint: 'messages',
     			page: page,
     			limit: limit
-    		}, 
+    		}
     	}).success(function(e) {
     		if(replace) {
     			$scope.messages = e;
@@ -78,7 +79,7 @@ angular.module('sqwiggle-feed.system').controller('FeedController', ['$scope', '
 	}
 
 	$scope.postMessage = function() {
-		if($scope.formData === null || $scope.formDataa == "") {
+		if($scope.formData === null || $scope.formData == "") {
 			return;
 		}
 

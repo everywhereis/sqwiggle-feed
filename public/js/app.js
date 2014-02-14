@@ -8,7 +8,8 @@ angular.module('sqwiggle-feed',
 	'infinite-scroll',
 	'sqwiggle-feed.users',
 	'sqwiggle-feed.system',
-	'sqwiggle-feed.filters']);
+	'sqwiggle-feed.filters',
+	]);
 
 angular.module('sqwiggle-feed.users', []);
 angular.module('sqwiggle-feed.system', []);

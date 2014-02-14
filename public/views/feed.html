@@ -22,7 +22,7 @@
 				<h2 ng-init="getRooms()" ng-cloak>{{room.name}}</h2>
 			</div>
 			
-				<!-- SHOW DATA FROM INPUTS AS THEY ARE BEING TYPED -->
+			<!-- SHOW DATA FROM INPUTS AS THEY ARE BEING TYPED -->
 			<div class="content" infinite-scroll="loadMore()" infinite-scroll-immediate-check="false">
 			<!-- FORM -->
 				<form ng-submit="postMessage()">					
@@ -32,14 +32,14 @@
 						<!-- SUBMIT BUTTON -->
 							<input type="text" name="text" class="pure-input-1" placeholder="Post to the swiggle chat" ng-model="formData.text">
 							<button type="submit" class="btn btn-success btn-lg btn-block pure-button pure-input-1 pure-button-primary">
-							 Submit!
+							 Submit
 							</button>
 						</fieldset>
 					</div>
 				</form>
 				<div class="pure-form">
 				<!-- Messages -->
-				<div ng-repeat="message in messages" ng-cloak> 
+				<div ng-repeat="message in messages" ng-if="message.text != ''"> 
 					<!-- Avatar - Name -->
 					<div id="nm" ng-if="message.text" >
 						<img class="avatar" ng-src={{message.author.avatar}} alt="avatar" />
