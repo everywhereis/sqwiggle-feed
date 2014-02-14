@@ -14,6 +14,11 @@
 					<li class="menu-item-divided pure-menu-available" ng-if="user.status == 'available'" ><a href="#">{{user.name}}</a></li>
 					<li class="menu-item-divided pure-menu-busy" ng-if="user.status == 'busy'" ><a href="#">{{user.name}}</a></li>
 				</ul>
+				<ul id="user-status-legend">
+					<li><div class="indicator available"></div> <span>Available</span></li>
+					<li><div class="indicator offline"></div> <span>Offline</span></li>
+					<li><div class="indicator busy"></div> <span>Busy</span></li>
+				</ul>
 			</div>
 		</div>
 		<div id="main">
