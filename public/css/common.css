@@ -127,11 +127,16 @@
 		clear:both;
 		}
 
+.pure-menu li a:hover, .pure-menu li a:focus {
+	background: inherit !important;
+	cursor: default;
+}
+
 .header h1 {
 	margin: 0.2em 0;
 	font-size: 2em;
 	font-weight: 300;
-}
+}	
 .header h2 {
 font-family: 'Roboto Slab', sans-serif;
 font-weight: 100;

@@ -7,9 +7,22 @@ angular.module('sqwiggle-feed.system').controller('FeedController', ['$scope', '
 	$scope.menuactive = false;
 	$scope.page = 1;
 	$scope.limit = 25;
+	$scope.room = {};
 
 	$scope.togglemenu = function(){
 		$scope.menuactive = !$scope.menuactive;
+	}
+
+	$scope.getRooms = function() {
+		$http.get('resources/api.php', {
+    		params: {
+    			endpoint: 'rooms',
+    		}, 
+    	}).success(function(rooms) {
+    		$scope.room = rooms.length > 0 ? rooms.pop() : null;
+    	}).error(function(e){
+    		console.error('could not fetch rooms...');
+    	});
 	}
 
 	$scope.getMessages = function() {
@@ -48,11 +61,14 @@ angular.module('sqwiggle-feed.system').controller('FeedController', ['$scope', '
 	}
 
 	$scope.postMessage = function() {
+		if($scope.formData === null || $scope.formDataa == "") {
+			return;
+		}
+
 		var payload = {
 			endpoint: 'messages',
 			data: $scope.formData
 		};
-		
 		$http({
 	        method  : 'POST',
 	        url     : 'resources/api.php',
@@ -60,6 +76,9 @@ angular.module('sqwiggle-feed.system').controller('FeedController', ['$scope', '
 	        headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  // set the headers so angular passing info as form data (not request payload)
 	    }).success(function(e) {
 	    	$scope.messages.unshift(e);
-        });
+	    	$scope.formData = '';
+        }).error(function(e) {
+        	alert('There was an error posting your message');
+        })
 	};
 }]);

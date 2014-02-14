@@ -189,7 +189,7 @@ small screens.
 
     .menu-link:hover,
     .menu-link:focus {
-        background: #000;
+        /*background: #000;*/
     }
 
     .menu-link span {

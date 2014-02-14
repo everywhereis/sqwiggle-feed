@@ -19,11 +19,11 @@
 		<div id="main">
 			<div class="header">
 				<h1>Sqwiggle Feed</h1>
-				<h2>Everywhere Room</h2>
+				<h2 ng-init="getRooms()" ng-cloak>{{room.name}}</h2>
 			</div>
 			
 				<!-- SHOW DATA FROM INPUTS AS THEY ARE BEING TYPED -->
-			<div class="content" infinite-scroll="loadMore()" infinite-scroll-immediate-check="false" >
+			<div class="content" infinite-scroll="loadMore()" infinite-scroll-immediate-check="false">
 			<!-- FORM -->
 				<form ng-submit="postMessage()">					
 					<!-- SUPERHERO NAME -->
@@ -37,12 +37,9 @@
 						</fieldset>
 					</div>
 				</form>
-				<div class="pure-form"> 
-				<button type="submit" class="pure-button pure-input-1" name="refresh">
-					Refresh Feed
-				</div>
+				<div class="pure-form">
 				<!-- Messages -->
-				<div ng-repeat="message in messages"> 
+				<div ng-repeat="message in messages" ng-cloak> 
 					<!-- Avatar - Name -->
 					<div id="nm" ng-if="message.text" >
 						<img class="avatar" ng-src={{message.author.avatar}} alt="avatar" />
