@@ -1,6 +1,6 @@
   'use strict';
 
-angular.module('sqwiggle-feed.system').controller('FeedController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
+angular.module('sqwiggle-feed.system').controller('FeedController', ['$scope', '$http', '$location', '$timeout', function ($scope, $http, $location, $timeout) {
 	
 	$scope.messages = [];
 	$scope.users = [];
@@ -8,6 +8,7 @@ angular.module('sqwiggle-feed.system').controller('FeedController', ['$scope', '
 	$scope.page = 1;
 	$scope.limit = 25;
 	$scope.room = {};
+	$scope.isPolling = false;
 
 	$scope.togglemenu = function(){
 		$scope.menuactive = !$scope.menuactive;
@@ -25,17 +26,34 @@ angular.module('sqwiggle-feed.system').controller('FeedController', ['$scope', '
     	});
 	}
 
-	$scope.getMessages = function() {
+	$scope.getMessages = function(replace) {
+
+		var page = $scope.page;
+		var limit = $scope.limit;
+
+		// if we replace the data, make sure we request correct update
+		if(replace) {
+			limit = limit * page;
+			page = 1;
+		}
+
 		$http.get('resources/api.php', {
     		params: {
     			endpoint: 'messages',
-    			page: $scope.page,
-    			limit: $scope.limit
+    			page: page,
+    			limit: limit
     		}, 
     	}).success(function(e) {
-    		for(var i in e) {
-    			var message = e[i];
-    			$scope.messages.push(message);
+    		if(replace) {
+    			$scope.messages = e;
+    		} else {
+    			for(var i in e) {
+	    			var message = e[i];
+	    			$scope.messages.push(message);
+	    		}
+    		}
+    		if(!$scope.isPolling) {
+    			$scope.startPolling();
     		}
     	}).error(function(e){
     		$location.path('install');
@@ -47,7 +65,6 @@ angular.module('sqwiggle-feed.system').controller('FeedController', ['$scope', '
     		params: {
     			endpoint: 'users'
     		}
-			
     	}).success(function(e) {
     		$scope.users = e;
     	}).error(function(e){
@@ -81,4 +98,23 @@ angular.module('sqwiggle-feed.system').controller('FeedController', ['$scope', '
         	alert('There was an error posting your message');
         })
 	};
+
+	// add polling interval with Fibonacci series (all credits go to SoundCloud for this :)
+	$scope.startPolling = function(){
+		var series = [1, 1];
+		var index = 0;
+		var next = 1;
+		var tick = function(seconds) {
+			$timeout(function(){
+				next = series[index] + series[index + 1];
+				series.push(next);
+				$scope.getMessages(true);
+				$scope.getUsers();
+				index ++;
+				tick(next);
+			}, seconds * 1000);
+		}
+		tick(next);
+		$scope.isPolling = true;
+	}
 }]);
