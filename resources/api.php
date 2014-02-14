@@ -36,7 +36,8 @@ class API {
 					}
 					echo $this->curl($url);
 				} else {
-					header(':', true, 404);
+					header(':', true, 401);
+					echo "Unauthorized";
 				}
 				break;
 			}
@@ -50,7 +51,8 @@ class API {
 				break;
 			}
 			default: {
-				header(':', true, 404);
+				header(':', true, 401);
+				echo "Unauthorized";
 			}
 		}
 	}
