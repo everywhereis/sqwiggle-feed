@@ -77,6 +77,11 @@
 	#menu {
 		left: 200px;
 	}
+
+	#layout {
+	padding-left: 200px;
+	left: 0;
+	}
 } 
 .avatar { 
 	float: left;
@@ -193,7 +198,7 @@ ul#user-status-legend{
 	text-align: left;
 	font-size: 0.9em;
 	margin: auto;
-	width: 100px;
+	padding:1em;
 }
 
 div.indicator {

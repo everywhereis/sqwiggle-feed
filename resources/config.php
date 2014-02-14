@@ -1,7 +1,7 @@
 <?php
 	class Config {
 
-		var $API_SECRET;
+		
 
 		public function Config() {
 			// read the contents of the settings file
