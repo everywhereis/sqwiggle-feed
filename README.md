@@ -8,12 +8,12 @@ Well sqwiggle feed is here to help you out!
 **Current feature list:**
  
   - Access your sqwiggle feed from any browser desktop/tablet and mobile.
-  - Add a comment right into the sqwiggle fee.
-  - Check users status (Available, busy, Offline).
+  - Add a comment right into the sqwiggle feed.
+  - Check users status (Available, Busy, Offline).
  
-**Future feature:**
+**Future feature list:**
  
-  - New intal proccess using HTLM5 local storage.
+  - New installation proccess using HTLM5 local storage.
  
 #Pre-Requirement
 
@@ -30,8 +30,8 @@ Well sqwiggle feed is here to help you out!
   
 #Credits
 
- - kukiwon
- - everywhereis
+ - [Kukiwon](https://github.com/Kukiwon)
+ - [Everywhereis](https://github.com/everywhereis)
 
 
 
