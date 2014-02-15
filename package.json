@@ -20,6 +20,7 @@
   "devDependencies": {
     "grunt-contrib-watch": "latest",
     "grunt-contrib-jshint": "latest",
-    "grunt-concurrent": "latest"
+    "grunt-concurrent": "latest",
+    "grunt-release": "~0.7.0"
   }
 }
