@@ -14,8 +14,16 @@ angular.module('sqwiggle-feed.system').controller('IndexController', ['$scope', 
     		$scope.dots = dots;
     	}, 500);
 
-    	$timeout(function() {
-    		$location.path('feed');
-    	}, 2000)
+        $http.get('resources/setup.php')
+        .success(function() {
+            $timeout(function() {
+                $location.path('feed');
+            }, 2000)
+        })
+        .error(function() {
+            $timeout(function() {
+                $location.path('install');
+            }, 2000);
+        });
 	}
 }]);

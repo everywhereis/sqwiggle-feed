@@ -1,13 +1,17 @@
 <?php
+	ini_set('display_errors', false);
+	error_reporting(-1);
+
 	class Config {
 
-		
+		var $API_SECRET = null; 
 
 		public function Config() {
 			// read the contents of the settings file
 			$this->settings = $this->readSettings();
 			if($this->needsInstall()) {
 				$this->throwUnAuthorizedHeader();
+				return;
 			}
 		}
 
@@ -28,7 +32,7 @@
 				    }
 				} 
 			} catch(Exception $e) {
-				return false;
+				// do nothing
 			};
 		}
 
@@ -47,9 +51,10 @@
 		}
 
 		private function throwUnAuthorizedHeader() {
-			header(':', true, 401);
-			echo "Unauthorized.";
+			if(!headers_sent()) {
+				header(':', true, 401);
+				echo "Unauthorized.";
+			}
 		}
 	}
 ?>
-
