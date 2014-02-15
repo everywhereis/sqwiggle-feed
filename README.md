@@ -17,11 +17,11 @@ Well sqwiggle feed is here to help you out!
  
 #Pre-Requirement
 
-  - PHP 5.X and above
+  - PHP 5.X and above sever
  
 #Installation Process
- 
-  - Upload Sqwiggle feed to a desired location on your server.
+  - Download the latest release of Sqwiggle Feed through  the [Releases Page](https://github.com/everywhereis/sqwiggle-feed/releases)
+  - Unzip the release and upload Sqwiggle feed to a desired location on your server.
   -	Create the directory /resources/files/ and make sure it is writable by your server.
   - Open the root directory of the sqwiggle feed app.
   - Add your Sqwiggle API Secret.
