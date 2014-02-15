@@ -30,6 +30,7 @@
 	margin-bottom:0.5em; 
 	padding-bottom:0.5em;
 	border-bottom:solid 1px #CBDDE7;
+	word-wrap: break-word;
 
 }
 #convomsg{
@@ -42,6 +43,7 @@
 	margin-bottom:0.5em; 
 	padding-bottom:0.5em;
 	border-bottom:solid 1px #D4E7CB;
+	word-wrap: break-word;
 
 }
 .content{
