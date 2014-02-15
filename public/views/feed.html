@@ -10,14 +10,9 @@
 			<div class="pure-menu pure-menu-open">
 				<a  href="#">Team</a> 
 				<ul ng-repeat="user in users">
-					<li class="menu-item-divided pure-menu-offline" ng-if="user.status == 'offline'" ><a href="#">{{user.name}}</a></li>
-					<li class="menu-item-divided pure-menu-available" ng-if="user.status == 'available'" ><a href="#">{{user.name}}</a></li>
-					<li class="menu-item-divided pure-menu-busy" ng-if="user.status == 'busy'" ><a href="#">{{user.name}}</a></li>
-				</ul>
-				<ul id="user-status-legend">
-					<li><div class="indicator available"></div> <span>Available</span></li>
-					<li><div class="indicator offline"></div> <span>Offline</span></li>
-					<li><div class="indicator busy"></div> <span>Busy</span></li>
+					<li class="menu-item-divided " ng-if="user.status == 'offline'" ><a href="#"><div class="indicator offline"></div> <span>{{user.name}}</span></a></li>
+					<li class="menu-item-divided " ng-if="user.status == 'available'" ><a href="#"><div class="indicator available"></div> <span>{{user.name}}</span></a></li>
+					<li class="menu-item-divided " ng-if="user.status == 'busy'" ><a href="#"><div class="indicator busy"></div> <span>{{user.name}}</span></a></li>
 				</ul>
 			</div>
 		</div>
