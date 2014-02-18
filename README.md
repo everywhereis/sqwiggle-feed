@@ -3,7 +3,7 @@
 
 #Sqwiggle Feed
  
-Well sqwiggle feed is here to help you out!
+Sqwiggle feed is here to help you out!
   
 **Current feature list:**
  
