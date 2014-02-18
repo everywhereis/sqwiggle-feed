@@ -1,4 +1,4 @@
-![](https://raw2.github.com/everywhereis/sqwiggle-feed/master/sqwigglefeed.PNG)
+  ![](http://s28.postimg.org/qq9ojhqvh/readmecover.png)
 
 
 #Sqwiggle Feed
@@ -31,7 +31,7 @@ Well sqwiggle feed is here to help you out!
 #Credits
 
  - [Kukiwon](https://github.com/Kukiwon)
- - [Everywhereis](https://github.com/everywhereis)
+ - [Everywhereis](http://www.everywhere.is/)
 
 
 
