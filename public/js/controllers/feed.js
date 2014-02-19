@@ -1,6 +1,8 @@
   'use strict';
 
-angular.module('sqwiggle-feed.system').controller('FeedController', ['$scope', '$http', '$location', '$timeout', function ($scope, $http, $location, $timeout) {
+angular.module('sqwiggle-feed.system').controller('FeedController', 
+	['$scope', '$http', '$location', '$timeout', 'Fibonacci',
+	function ($scope, $http, $location, $timeout, Fibonacci) {
 	
 	$scope.messages = [];
 	$scope.users = [];
@@ -48,6 +50,18 @@ angular.module('sqwiggle-feed.system').controller('FeedController', ['$scope', '
     		}
     	}).success(function(e) {
     		if(replace) {
+
+    			if(Object.prototype.toString.call(e) === '[object Array]' && e.length > 0) {
+    				// get first message
+    				var firstFetchedMessage = e[0];
+    				var firstCurrentMessage = $scope.messages.length > 0 ? $scope.messages[0] : null;
+    				if(firstFetchedMessage !== null && firstCurrentMessage !== null) {
+    					if(firstFetchedMessage.id > firstCurrentMessage.id) {
+    						console.log('we got a new message');
+    						Fibonacci.restart();
+    					}
+    				}
+    			}
     			$scope.messages = e;
     		} else {
     			for(var i in e) {
@@ -58,8 +72,14 @@ angular.module('sqwiggle-feed.system').controller('FeedController', ['$scope', '
 	    			}
 	    		}
     		}
-    		if(!$scope.isPolling) {
-    			$timeout($scope.startPolling, 5000);
+    		if(!Fibonacci.isPolling) {
+    			Fibonacci.start({
+					max: 10,
+					callback: function() {
+						$scope.getMessages(true);
+						$scope.getUsers();
+					}
+				});
     		}
     	}).error(function(e){
     		$location.path('install');
@@ -100,27 +120,9 @@ angular.module('sqwiggle-feed.system').controller('FeedController', ['$scope', '
 	    }).success(function(e) {
 	    	$scope.messages.unshift(e);
 	    	$scope.formData = '';
+	    	Fibonacci.restart();
         }).error(function(e) {
         	alert('There was an error posting your message');
         })
 	};
-
-	// add polling interval with Fibonacci series (all credits go to SoundCloud for this :)
-	$scope.startPolling = function(){
-		var series = [1, 1];
-		var index = 0;
-		var next = 1;
-		var tick = function(seconds) {
-			$timeout(function(){
-				next = series[index] + series[index + 1];
-				series.push(next);
-				$scope.getMessages(true);
-				$scope.getUsers();
-				index ++;
-				tick(next);
-			}, seconds * 1000);
-		}
-		tick(next);
-		$scope.isPolling = true;
-	}
 }]);
