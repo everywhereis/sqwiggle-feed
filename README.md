@@ -8,7 +8,7 @@ Sqwiggle feed is here to help you out!
 **Current feature list:**
  
   - Access your sqwiggle feed from any browser desktop/tablet and mobile.
-  - Add a comment right into the sqwiggle feed.
+  - Add a comment right into the sqwiggle chat.
   - Check users status (Available, Busy, Offline).
  
 **Future feature list:**
