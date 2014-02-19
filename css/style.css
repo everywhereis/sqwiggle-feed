@@ -31,3 +31,6 @@ margin:auto;
 a:link {color:#263443;}      /* unvisited link */
 a:visited {color:#263443;}  /* visited link */
 
+.content{
+padding: 4em;
+}
