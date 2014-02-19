@@ -57,7 +57,6 @@ angular.module('sqwiggle-feed.system').controller('FeedController',
     				var firstCurrentMessage = $scope.messages.length > 0 ? $scope.messages[0] : null;
     				if(firstFetchedMessage !== null && firstCurrentMessage !== null) {
     					if(firstFetchedMessage.id > firstCurrentMessage.id) {
-    						console.log('we got a new message');
     						Fibonacci.restart();
     					}
     				}
