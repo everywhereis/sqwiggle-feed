@@ -30,3 +30,10 @@ margin:auto;
 
 a:link {color:#263443;}      /* unvisited link */
 a:visited {color:#263443;}  /* visited link */
+
+@media screen and (min-width: 48em){
+.pure-u-med-3-4, .pure-u-med-18-24 {
+width: 75%;
+margin: auto;
+}
+}
