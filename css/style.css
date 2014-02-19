@@ -1,0 +1,32 @@
+.splash-container{
+background-image:url('../img/cover.png');
+background-repeat:no-repeat;
+background-position:center; 
+background-color:#fff;
+}
+.content-wrapper{
+background-color:#fff;
+border-top:solid 1px #ccc;
+}
+
+.content-head {
+font-weight: 400;
+text-transform: uppercase;
+font-family:  'Roboto Slab', sans-serif;
+letter-spacing: 0.1em;
+margin: 1.5em 0 1em;
+}
+.features{
+margin:auto;
+}
+@media screen and (min-width: 58em){
+	.description{
+	margin-top: 300px; 
+	}
+	.ribbon {
+		border-bottom:solid 1px #263443;
+	}
+}
+
+a:link {color:#263443;}      /* unvisited link */
+a:visited {color:#263443;}  /* visited link */
