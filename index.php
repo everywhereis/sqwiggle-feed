@@ -39,8 +39,7 @@
 		<script type="text/javascript" src="public/js/filters.js"></script>
 
 		<!-- Application Services -->
-		<script type="text/javascript" src="public/js/services/users.js"></script>
-		<script type="text/javascript" src="public/js/services/fibonacci.js"></script>
+		<script type="text/javascript" src="public/lib/angular-fibonacci/angular-fibonacci.js"></script>
 
 		<!-- Application Filters -->
 		<script type="text/javascript" src="public/js/filters.js"></script>

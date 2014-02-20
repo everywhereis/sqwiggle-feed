@@ -24,6 +24,7 @@
     "jquery": "~2.1.0",
     "ngInfiniteScroll": "~1.0.0",
     "angular-moment": "~0.6.2",
-    "pure": "~0.4.1"
+    "pure": "~0.4.1",
+    "angular-fibonacci": "*"
   }
 }
