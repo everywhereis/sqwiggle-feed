@@ -69,12 +69,12 @@
 					<!-- Conversation Text -->
 					<div ng-if="message.conversation">
 						<div id="convomsg">
-						Conversation {{message.conversation.status}} between
+						Conversation {{message.conversation.status}} between ({{message.conversation.duration | amDurationFormat: 'seconds'}})
 							<div style="height: 2.5em;" >
 								<img class="avatar" ng-src={{participants.avatar}} alt="avatar" ng-repeat="participants in message.conversation.participated"  />
 							</div>
 							<div class="clear"></div>
-								<div class="timestamp" am-time-ago="message.created_at" ></div>
+							<div class="timestamp" am-time-ago="message.created_at" ></div>
 							<div class="clear"></div>	
 						</div>
 					</div>
