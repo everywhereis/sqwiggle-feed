@@ -9,10 +9,10 @@ angular.module('sqwiggle-feed',
 	'sqwiggle-feed.users',
 	'sqwiggle-feed.system',
 	'sqwiggle-feed.filters',
-	'sqwiggle-feed.fibonacci',
+	'angular-fibonacci',
 	]);
 
 angular.module('sqwiggle-feed.users', []);
 angular.module('sqwiggle-feed.system', []);
 angular.module('sqwiggle-feed.filters', []);
-angular.module('sqwiggle-feed.fibonacci', []);
+angular.module('angular-fibonacci', []);

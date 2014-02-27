@@ -111,6 +111,8 @@ angular.module('sqwiggle-feed.system').controller('FeedController',
 			endpoint: 'messages',
 			data: $scope.formData
 		};
+
+		$scope.formData = '';
 		$http({
 	        method  : 'POST',
 	        url     : 'resources/api.php',
@@ -118,7 +120,6 @@ angular.module('sqwiggle-feed.system').controller('FeedController',
 	        headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  // set the headers so angular passing info as form data (not request payload)
 	    }).success(function(e) {
 	    	$scope.messages.unshift(e);
-	    	$scope.formData = '';
 	    	Fibonacci.restart();
         }).error(function(e) {
         	alert('There was an error posting your message');

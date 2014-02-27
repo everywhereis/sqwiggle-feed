@@ -13,7 +13,7 @@ angular.module('sqwiggle-feed.system').controller('IndexController', ['$scope', 
         .error(function() {
             $timeout(function() {
                 $location.path('install');
-            }, 2000);
+            }, 1000);
         });
 	}
 }]);

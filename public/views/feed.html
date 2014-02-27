@@ -29,8 +29,8 @@
 					<div id="superhero-group" class="pure-form"> 
 						<fieldset>
 						<!-- SUBMIT BUTTON -->
-							<input type="text" name="text" class="pure-input-1" placeholder="Post to the swiggle chat" ng-model="formData.text">
-							<button type="submit" class="btn btn-success btn-lg btn-block pure-button pure-input-1 pure-button-primary">
+							<input type="text" name="text" class="pure-input-1" placeholder="Post to the Sqwiggle chat" ng-model="formData.text">
+							<button type="submit" class="btn btn-success btn-lg btn-block pure-button pure-input-1 pure-button-primary" ng-show="formData.text.length > 0">
 							 Submit
 							</button>
 						</fieldset>
@@ -67,6 +67,7 @@
 										{{message.conversation.duration | humanize}} conversation
 									</div>
 								</div>
+
 							</div>
 							<!-- Cover - user -->
 							<div ng-if="message.type=='message'" >
@@ -86,8 +87,9 @@
 							
 							
 							
-								<div class="cover_description"><i class="fa fa-clock-o" ></i><span class="cover_timestamp" am-time-ago="message.created_at"></span></div>
+							<div class="cover_description"><i class="fa fa-clock-o" ></i><span class="cover_timestamp" am-time-ago="message.created_at"></span></div>
 							<div class="clear"></div>
+
 							<!-- Messages Text -->
 							<div id="msg" ng-if="message.type=='message'">
 								{{message.text}}
@@ -121,9 +123,9 @@
 								<div id="apimsg">
 									<div ng-bind-html="message.text | unsafe"></div>
 								</div>
-								
 							</div>
 							
+
 						
 				</div>
 				</div>
