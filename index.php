@@ -5,6 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="A layout example with a side menu that hides on mobile, just like the Pure website.">
 		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+		<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 		<title>Sqwiggle Feed</title>
 		<link rel="stylesheet" href="public/lib/pure/pure-min.css">
 	    <!--[if lte IE 8]>

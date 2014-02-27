@@ -36,61 +36,98 @@
 						</fieldset>
 					</div>
 				</form>
-				<div class="pure-form">
+				<div class="pure-g-r">
 				<!-- Messages -->
-				<div ng-repeat="message in messages" ng-if="message.text != ''"> 
-					<!-- Avatar - Name -->
-					<div id="nm" ng-if="message.text" >
-						<img class="avatar" ng-src={{message.author.avatar}} alt="avatar" />
-						{{message.author.name}}
-					</div>
-					<!-- Messages Text -->
-					<div id="msg" ng-if="message.type=='message'">
-						{{message.text}}
-						<div ng-if="message.attachments"> 
-							<a href={{message.attachments[0].url}} ><div class="attachment">
-									<div class="attachment_image" ng-if="message.attachments[0].image">
-										<img ng-src={{message.attachments[0].image}} />
+				<div  class="pure-u-1-2" ng-repeat="message in messages" ng-if="message.text != ''"> 
+						
+							<!-- Covers - Name -->
+							
+							<!-- Cover - github -->
+							<div ng-if="message.type=='html'" >
+								<div class="cover_html"  >
+									<div id="nm" ng-if="message.text" >
+										<img class="avatar" ng-src={{message.author.avatar}} alt="avatar" />
+										{{message.author.name}}
 									</div>
-									<div class="attachment_title">
-										{{message.attachments[0].title}}
-									</div>
-									<div class="attachment_desciption">
-										{{message.attachments[0].description}}
-										<span></span>
+									<div id="nm" ng-if="!message.text" >
+										<img class="avatar" ng-src="https://sqwiggle-assets.s3.amazonaws.com/assets/api/lightning-bf2914affd9d0e946bbba9b27d9166c0.png" alt="avatar" />
+										{{message.conversation.duration | humanize}} conversation
 									</div>
 								</div>
-							</a>
-						</div>
-						<div class="clear"></div>
-							<div class="timestamp" am-time-ago="message.created_at"  ></div>
-						<div class="clear"></div>
-					</div> 
-					<!-- Conversation Text -->
-					<div ng-if="message.conversation">
-						<div id="convomsg">
-						Conversation {{message.conversation.status}} between
-							<div style="height: 2.5em;" >
-								<img class="avatar" ng-src={{participants.avatar}} alt="avatar" ng-repeat="participants in message.conversation.participated"  />
 							</div>
+							<!-- Cover - user -->
+							<div ng-if="message.conversation" >
+								<div class="cover_conv"  >
+									<div id="nm" ng-if="message.text" >
+										<img class="avatar" ng-src={{message.author.avatar}} alt="avatar" />
+										{{message.author.name}}
+									</div>
+									<div id="nm" ng-if="!message.text" >
+										<img class="avatar" ng-src="https://sqwiggle-assets.s3.amazonaws.com/assets/api/lightning-bf2914affd9d0e946bbba9b27d9166c0.png" alt="avatar" />
+										{{message.conversation.duration | humanize}} conversation
+									</div>
+								</div>
+							</div>
+							<!-- Cover - user -->
+							<div ng-if="message.type=='message'" >
+								<div class="cover"  >
+									<div id="nm" ng-if="message.text" >
+										<img class="avatar" ng-src={{message.author.avatar}} alt="avatar" />
+										{{message.author.name}}
+									</div>
+									<div id="nm" ng-if="!message.text" >
+										<img class="avatar" ng-src="https://sqwiggle-assets.s3.amazonaws.com/assets/api/lightning-bf2914affd9d0e946bbba9b27d9166c0.png" alt="avatar" />
+										{{message.conversation.duration | humanize}} conversation
+									</div>
+								</div>
+							</div>
+							
+							
+							
+							
+							
+								<div class="cover_description"><i class="fa fa-clock-o" ></i><span class="cover_timestamp" am-time-ago="message.created_at"></span></div>
 							<div class="clear"></div>
-								<div class="timestamp" am-time-ago="message.created_at" ></div>
-							<div class="clear"></div>	
-						</div>
-					</div>
-					<!-- Github Text -->
-					<div ng-if="message.type=='html'" >
-						<div id="apimsg">
-							<div ng-bind-html="message.text | unsafe"></div>
-							<div class="clear"></div>
-								<div class="timestamp" am-time-ago="message.created_at" ></div>
-							<div class="clear"></div>
-						</div>
+							<!-- Messages Text -->
+							<div id="msg" ng-if="message.type=='message'">
+								{{message.text}}
+								<div ng-if="message.attachments"> 
+									<a href={{message.attachments[0].url}} ><div class="attachment">
+											<div class="attachment_image" ng-if="message.attachments[0].image">
+												<img ng-src={{message.attachments[0].image}} />
+											</div>
+											<div class="attachment_title">
+												{{message.attachments[0].title}}
+											</div>
+											<div class="attachment_desciption">
+												{{message.attachments[0].description}}
+												<span></span>
+											</div>
+										</div>
+									</a>
+								</div>
+							</div> 
+							<!-- Conversation Text -->
+							<div ng-if="message.conversation">
+								<div id="convomsg">
+									<div style="height: 2.5em;" >
+										<img class="avatar" ng-src={{participants.avatar}} alt="avatar" ng-repeat="participants in message.conversation.participated"  />
+									</div>
+										
+								</div>
+							</div>
+							<!-- Github Text -->
+							<div ng-if="message.type=='html'" >
+								<div id="apimsg">
+									<div ng-bind-html="message.text | unsafe"></div>
+								</div>
+								
+							</div>
+							
 						
-					</div>
-					
 				</div>
-			</div>
+				</div>
+			
 		</div>
 	</div>
 </section>
