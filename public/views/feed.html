@@ -8,12 +8,14 @@
 		</a>
 		<div id="menu" ng-class="menuactive ? 'active' :''">
 			<div class="pure-menu pure-menu-open">
+			<center><button class="pure-button pure-button-primary" ng-click="toStats()">Check-out your Stats</button></center>
 				<ul ng-repeat="user in users">
 					<li class="menu-item-divided " ng-if="user.status == 'offline'" ><a><div class="indicator offline"></div> <span>{{user.name}}</span></a></li>
 					<li class="menu-item-divided " ng-if="user.status == 'available'" ><a><div class="indicator available"></div> <span>{{user.name}}</span></a></li>
 					<li class="menu-item-divided " ng-if="user.status == 'busy'" ><a><div class="indicator busy"></div> <span>{{user.name}}</span></a></li>
 				</ul>
 			</div>
+			
 		</div>
 		<div id="main">
 			<div class="header">
@@ -82,11 +84,6 @@
 									</div>
 								</div>
 							</div>
-							
-							
-							
-							
-							
 							<div class="cover_description"><i class="fa fa-clock-o" ></i><span class="cover_timestamp" am-time-ago="message.created_at"></span></div>
 							<div class="clear"></div>
 
@@ -114,8 +111,7 @@
 								<div id="convomsg">
 									<div style="height: 2.5em;" >
 										<img class="avatar" ng-src={{participants.avatar}} alt="avatar" ng-repeat="participants in message.conversation.participated"  />
-									</div>
-										
+									</div>	
 								</div>
 							</div>
 							<!-- Github Text -->

@@ -10,6 +10,9 @@ angular.module('sqwiggle-feed').config(['$routeProvider', '$httpProvider',
         when('/feed', {
             templateUrl: 'public/views/feed.html'
         }).
+		when('/stats', {
+            templateUrl: 'public/views/stats.html'
+        }).
        	when('/install', {
             templateUrl: 'public/views/install.html',
             controller: 'InstallController'

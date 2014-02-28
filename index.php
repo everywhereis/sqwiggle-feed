@@ -48,6 +48,7 @@
 		<!-- Application Controllers -->
 		<script type="text/javascript" src="public/js/controllers/index.js"></script>
 		<script type="text/javascript" src="public/js/controllers/feed.js"></script>
+		<script type="text/javascript" src="public/js/controllers/stats.js"></script>
 		<script type="text/javascript" src="public/js/controllers/install.js"></script>
 		<script type="text/javascript" src="public/js/init.js"></script>
 		<?php

@@ -1,0 +1,142 @@
+
+<section ng-controller="StatsController" ng-init="initialize();">
+	<div id="layout" ng-class="menuactive ? 'active' :''">
+		<!-- Menu toggle -->
+		<a id="menuLink" class="menu-link" ng-class="menuactive ? 'active' :''" ng-click="togglemenu()">
+			<!-- Hamburger icon -->
+			<span></span>
+		</a>
+		<div id="menu" ng-controller="FeedController" ng-init="getUsers();" ng-class="menuactive ? 'active' :''">
+			<div class="pure-menu pure-menu-open">
+			<center><button class="pure-button pure-button-primary" ng-click="toFeed()">Back to feed</button></center>
+				<ul ng-repeat="user in users">
+					<li class="menu-item-divided " ng-if="user.status == 'offline'" ><a><div class="indicator offline"></div> <span>{{user.name}}</span></a></li>
+					<li class="menu-item-divided " ng-if="user.status == 'available'" ><a><div class="indicator available"></div> <span>{{user.name}}</span></a></li>
+					<li class="menu-item-divided " ng-if="user.status == 'busy'" ><a><div class="indicator busy"></div> <span>{{user.name}}</span></a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="main">
+			<div class="header">
+				<h1>Sqwiggle Stats</h1>
+				<h2 ng-init="getRooms()" ng-cloak>{{room.name}}</h2>
+			</div>
+			<!-- SHOW DATA FROM INPUTS AS THEY ARE BEING TYPED -->
+			<div class="content">
+			<!-- FORM -->
+				<div class="pure-g-r">
+					<div  class="pure-u-1-1"> 
+						<div class="cover_stats_team"  >
+								<div id="nm" >
+									<img class="avatar" ng-src="https://sqwiggle-assets.s3.amazonaws.com/assets/api/robot-79270eed8cfe1b32bc858de9977e4bdb.png" alt="team" />
+									<p>Team members</p>
+								</div>
+						</div>
+						<div class="" ng-controller="FeedController" ng-init="getUsers(); getRooms()">
+							<span  ng-repeat="user in users">
+							<img class="avatar_team" ng-src={{user.avatar}} alt="avatar"  />
+							</span>
+							<div class="clear"></div>
+						</div>
+						<div class="clear"></div>
+						<!-- Messages Text -->
+						<div id="msg" >
+						
+						</div> 
+					</div>
+					<div  class="pure-u-1-2"> 
+						<div class="cover_stats_messages"  >
+								<div id="nm" >
+									<img class="avatar" ng-src="https://sqwiggle-assets.s3.amazonaws.com/assets/api/support-e2ae56203a124364512e3f1f48898b57.png" alt="team" />
+									<p>Total messages sent</p>
+								</div>
+						</div>
+						<div class="clear"></div>
+						<!-- Messages Text -->
+						<div id="msg" >
+						<div class="clear"></div>
+							<center><div class="stat_number">{{allMessages.length}}</div></center>
+							<div class="clear"></div>
+						</div> 
+					</div>
+					<div  class="pure-u-1-2"> 
+						<div class="cover_stats_messages"  >
+								<div id="nm" >
+									<img class="avatar" ng-src="https://sqwiggle-assets.s3.amazonaws.com/assets/api/support-e2ae56203a124364512e3f1f48898b57.png" alt="team" />
+									<p>Characters posted</p>
+								</div>
+						</div>
+						<div class="clear"></div>
+						<!-- Messages Text -->
+						<div id="msg" >
+							<center><div class="stat_number">{{allCharacters}}</div></center>
+							<div class="clear"></div>
+						</div> 
+					</div>
+					<div  class="pure-u-1-2" > 
+						<div class="cover_stats_messages"  >
+								<div id="nm" >
+									<img class="avatar" ng-src="https://sqwiggle-assets.s3.amazonaws.com/assets/api/support-e2ae56203a124364512e3f1f48898b57.png" alt="team" />
+									<p>You own the feed</p>
+								</div>
+						</div>
+						<div class="clear"></div>
+						<!-- Messages Text -->
+						<div id="msg" >
+							<div ng-repeat = "user in userStats | orderObjectBy:'numOfMessages':true">
+								<div ng-if="$index == 0" class="stat_name"><center>{{user.author.name}}</center></div>
+								<div ng-if="$index == 0" class="stat_description">Woow you talk a lot you are responsible for {{user.numOfMessages}} comments in the feed</div>
+							</div>
+						</div> 
+					</div>
+					<div  class="pure-u-1-2" > 
+						<div class="cover_stats_messages"  >
+								<div id="nm" >
+									<img class="avatar" ng-src="https://sqwiggle-assets.s3.amazonaws.com/assets/api/support-e2ae56203a124364512e3f1f48898b57.png" alt="team" />
+									<p>Timid</p>
+								</div>
+						</div>
+						<div class="clear"></div>
+						<!-- Messages Text -->
+						<div id="msg" >
+							<div ng-repeat = "user in userStats | orderObjectBy:'numOfMessages':false">
+								<div ng-if="$index == 0" class="stat_name"><center>{{user.author.name}} </center></div>
+								<div ng-if="$index == 0" class="stat_description">Hmm you only posted {{user.numOfMessages}} comments</div>
+							</div>
+						</div> 
+					</div>
+					<div  class="pure-u-1-2" > 
+						<div class="cover_stats_conversations"  >
+								<div id="nm">
+									<img class="avatar" ng-src="public/img/icon_comments.png" alt="conversations" />
+									<p>Keep on talking</p>
+								</div>
+						</div>
+						<div class="clear"></div>
+						<!-- Messages Text -->
+						<div id="msg" >
+							<div ng-repeat = "user in userStats | orderObjectBy:'conversationTime':true">
+								<div ng-if="$index == 0" class="stat_name"><center>{{user.author.name}} </center></div>
+								<div ng-if="$index == 0" class="stat_description">Oww you chatterbox you spent {{user.conversationTime | humanize}} in conversation</div>
+							</div>
+						</div> 
+					</div>
+					<div  class="pure-u-1-2"> 
+						<div class="cover_stats_conversations"  >
+								<div id="nm" >
+									<img class="avatar" ng-src="public/img/icon_comments.png" alt="conversations" />
+									<p>Total time spent in conversation</p>
+								</div>
+						</div>
+						<div class="clear"></div>
+						<!-- Messages Text -->
+						<div id="msg" >
+							<center><div class="stat_number">{{totalConversationDuration | humanize}}</div></center>
+							<div class="clear"></div>
+						</div> 
+					</div>
+				</div>
+		</div>
+	</div>
+	</div>
+</section>

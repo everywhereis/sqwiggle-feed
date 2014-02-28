@@ -12,8 +12,10 @@ angular.module('sqwiggle-feed.system').controller('FeedController',
 	$scope.room = {
 		name: 'loading...'
 	};
+	$scope.toStats = function() {
+		$location.path('/stats');
+	}
 	$scope.isPolling = false;
-
 	$scope.togglemenu = function(){
 		$scope.menuactive = !$scope.menuactive;
 	}
@@ -96,7 +98,7 @@ angular.module('sqwiggle-feed.system').controller('FeedController',
     		$location.path('install');
     	});
 	}
-
+	
 	$scope.loadMore = function(){
 		$scope.page ++;
 		$scope.getMessages();
@@ -125,4 +127,6 @@ angular.module('sqwiggle-feed.system').controller('FeedController',
         	alert('There was an error posting your message');
         })
 	};
+	
+	
 }]);

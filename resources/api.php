@@ -67,7 +67,7 @@ class API {
 		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);     
-		curl_setopt($ch, CURLOPT_TIMEOUT, '3');
+		curl_setopt($ch, CURLOPT_TIMEOUT, '30');
 		$content = trim(curl_exec($ch));
 		curl_close($ch);
 		return $content;
