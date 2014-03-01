@@ -95,7 +95,7 @@
 						<div id="msg" >	
 							<div ng-repeat = "user in userStats | orderObjectBy:'numOfMessages':true" >
 								<div ng-if="$index == 0" class="stat_name"><center>{{user.author.name}}</center></div>
-								<div ng-if="$index == 0" class="stat_description">Woow you talk a lot you are responsible for {{user.numOfMessages | largeNumberFormat}} comments in the feed</div>
+								<div ng-if="$index == 0" class="stat_description">Woow you talk a lot! You are responsible for {{user.numOfMessages | largeNumberFormat}} comments in the feed</div>
 							</div>
 						</div> 
 					</div>
@@ -127,7 +127,7 @@
 						<div id="msg" >
 							<div ng-repeat = "user in userStats | orderObjectBy:'conversationTime':true">
 								<div ng-if="$index == 0" class="stat_name"><center>{{user.author.name}} </center></div>
-								<div ng-if="$index == 0" class="stat_description">Oww you chatterbox you spent {{user.conversationTime | humanize}} in conversation</div>
+								<div ng-if="$index == 0" class="stat_description">Oww you chatterbox! You spent {{user.conversationTime | humanize}} in conversation</div>
 							</div>
 						</div> 
 					</div>
