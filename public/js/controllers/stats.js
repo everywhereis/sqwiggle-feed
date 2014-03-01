@@ -186,6 +186,8 @@ angular.module('sqwiggle-feed.system').controller('StatsController', ['$scope', 
 							$scope.addUserStatsForMessage(message);
 						}
 					}
+				} else {
+					$scope.getMessagesForPage(page);
 				}
 			}).error(function(e){
 				console.log('could not fetch messages...');
