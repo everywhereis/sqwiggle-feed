@@ -106,7 +106,7 @@ padding-right: 23px;
 .avatar_team { 
 	float: left;
 	margin-top: .3em;
-	margin-right: 1em;
+	margin-left: 0.9em;
 	position: relative;
 
 	height:4.3em;
