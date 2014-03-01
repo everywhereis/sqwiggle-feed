@@ -26,3 +26,14 @@ angular.module('sqwiggle-feed.filters').filter('humanize', function() {
     return moment.duration(time, "seconds").humanize();
   }
 });
+
+
+angular.module('sqwiggle-feed.filters').filter('largeNumberFormat', function() {
+  return function(val) {
+	if(val >= 1000000000) val = (val/1000000000).toFixed(1) + 'B';
+    else if(val >= 1000000) val = (val/1000000).toFixed(1) + 'M';
+    else if(val >= 1000) val = (val/1000).toFixed(1) + 'K';
+    return val;
+  }
+});
+

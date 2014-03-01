@@ -1,5 +1,6 @@
 
 <section ng-controller="StatsController" ng-init="initialize();">
+
 	<div id="layout" ng-class="menuactive ? 'active' :''">
 		<!-- Menu toggle -->
 		<a id="menuLink" class="menu-link" ng-class="menuactive ? 'active' :''" ng-click="togglemenu()">
@@ -31,17 +32,18 @@
 									<img class="avatar" ng-src="https://sqwiggle-assets.s3.amazonaws.com/assets/api/robot-79270eed8cfe1b32bc858de9977e4bdb.png" alt="team" />
 									<p>Team members</p>
 								</div>
+								
 						</div>
-						<div class="" ng-controller="FeedController" ng-init="getUsers(); getRooms()">
+						
+						<div class="clear"></div>
+						<!-- Messages Text -->
+						<div id="msg" >
+						<center><div class="" ng-controller="FeedController" ng-init="getUsers(); getRooms()">
 							<span  ng-repeat="user in users">
 							<img class="avatar_team" ng-src={{user.avatar}} alt="avatar"  />
 							</span>
 							<div class="clear"></div>
-						</div>
-						<div class="clear"></div>
-						<!-- Messages Text -->
-						<div id="msg" >
-						
+						</div></center>
 						</div> 
 					</div>
 					<div  class="pure-u-1-2"> 
@@ -55,7 +57,8 @@
 						<!-- Messages Text -->
 						<div id="msg" >
 						<div class="clear"></div>
-							<center><div class="stat_number">{{allMessages.length}}</div></center>
+							<center><div class="stat_number">{{allMessages.length | largeNumberFormat}}</div></center>
+							<!--<div flowtype min-font="10" max-font="20" font-ratio ="20" line-ratio="1"  minimum="300" maximum="600">123</div>-->
 							<div class="clear"></div>
 						</div> 
 					</div>
@@ -69,7 +72,7 @@
 						<div class="clear"></div>
 						<!-- Messages Text -->
 						<div id="msg" >
-							<center><div class="stat_number">{{allCharacters}}</div></center>
+							<center><div class="stat_number">{{allCharacters | largeNumberFormat}}</div></center>
 							<div class="clear"></div>
 						</div> 
 					</div>
@@ -85,7 +88,7 @@
 						<div id="msg" >
 							<div ng-repeat = "user in userStats | orderObjectBy:'numOfMessages':true">
 								<div ng-if="$index == 0" class="stat_name"><center>{{user.author.name}}</center></div>
-								<div ng-if="$index == 0" class="stat_description">Woow you talk a lot you are responsible for {{user.numOfMessages}} comments in the feed</div>
+								<div ng-if="$index == 0" class="stat_description">Woow you talk a lot you are responsible for {{user.numOfMessages | largeNumberFormat}} comments in the feed</div>
 							</div>
 						</div> 
 					</div>

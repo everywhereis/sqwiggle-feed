@@ -109,8 +109,8 @@ padding-right: 23px;
 	margin-right: 1em;
 	position: relative;
 
-	height:5em;
-	width:5em;
+	height:4.6em;
+	width:4.6em;
 
 	-webkit-border-radius: 50%;
 	-moz-border-radius: 50%;
@@ -240,7 +240,7 @@ div.indicator.busy {
 }
 .content {
 margin: 0 auto;
-padding: 0 1em;
+padding: 0 0.2em;
 max-width: 800px;
 margin-bottom: 50px;
 line-height: 1.6em;
@@ -517,8 +517,6 @@ text-align: right;
 margin-right: 5px;
 }
 .header, .content {
-padding-left: 2em;
-padding-right: 2em;
 margin-bottom: 1em;
 }
 .cover_stats_team{

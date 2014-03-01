@@ -10,6 +10,7 @@ angular.module('sqwiggle-feed',
 	'sqwiggle-feed.system',
 	'sqwiggle-feed.filters',
 	'angular-fibonacci',
+	'ngFlowtype',
 	]);
 
 angular.module('sqwiggle-feed.users', []);

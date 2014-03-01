@@ -19,13 +19,16 @@
 	<body>	
 		<div ng-view></div>
 		<!-- Jquery -->
-		<script type='text/javascript' src='public/lib/jquery/dist/jquery.min.js'></script>
+		<script type='text/javascript' src='public/lib/jquery/jquery.min.js'></script>
+		<!--Flowtype-->
+		<script type='text/javascript' src='public/lib/flowtype/flowtype.js'></script>
 
 		<!-- AngularJS -->
 		<script type="text/javascript" src="public/lib/angular/angular.js"></script>
 		<script type="text/javascript" src="public/lib/angular-sanitize/angular-sanitize.js"></script>
 		<script type="text/javascript" src="public/lib/angular-resource/angular-resource.js"></script>
 		<script type="text/javascript" src="public/lib/angular-route/angular-route.js"></script>
+		<script type='text/javascript' src='public/lib/angular-flowtype/angular-flowtype.js'></script>
 
 		<!-- Angular Moment -->
 		<script src="public/lib/moment/moment.js"></script>
