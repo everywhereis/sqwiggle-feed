@@ -7,6 +7,7 @@ angular.module('sqwiggle-feed.system').controller('StatsController', ['$scope', 
 		$scope.allCharacters = 0;
 		$scope.userStats = {};
 		$scope.totalConversationDuration = 0;
+		$scope.probingFactor = 2;
 		$scope.toFeed = function() {
 			$location.path('/feed');
 		}
@@ -59,7 +60,7 @@ angular.module('sqwiggle-feed.system').controller('StatsController', ['$scope', 
 
 		$scope.initialize = function() {
 			//$scope.getAllMessages(0);
-			$scope.probeMessages(1);
+			$scope.probeMessages(1, false);
 			$scope.probeConversations(1);
 		}
 
@@ -99,7 +100,7 @@ angular.module('sqwiggle-feed.system').controller('StatsController', ['$scope', 
 			});
 		}
 
-		$scope.probeMessages = function(page) {
+		$scope.probeMessages = function(page, finetuning, previousPage) {
 			$scope.allMessages = [];
 			$http.get('resources/api.php', {
 				params: {
@@ -109,11 +110,26 @@ angular.module('sqwiggle-feed.system').controller('StatsController', ['$scope', 
 				}
 			}).success(function(e) {
 				if(Array.isArray(e)) {
-					if(e.length > 0) {
-						$scope.probeMessages(page * 2);
-					}
-					else {
-						$scope.getAllMessages(page);
+					if(finetuning) {
+						var lastDifference = page - page / $scope.probingFactor;
+						if(Math.abs(page - previousPage) <= 1) {
+							$scope.getAllMessages(page);
+						}
+						else if(e.length > 0) {
+							// we have to go up
+							$scope.probeMessages(page + (page - previousPage) / $scope.probingFactor, true, page);
+						} else {
+							// we have to go down
+							$scope.probeMessages(page - (page - previousPage) / $scope.probingFactor, true, page);
+						}
+					} else {
+						if(e.length > 0) {
+							$scope.probeMessages(page * $scope.probingFactor, false);
+						}
+						else {
+							var lastDifference = page - page / $scope.probingFactor;
+							$scope.probeMessages(page - (lastDifference / $scope.probingFactor), true, page - lastDifference);
+						}
 					}
 				}
 			});
