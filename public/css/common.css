@@ -555,6 +555,24 @@ vertical-align:text-bottom;
 padding-top:3em;
 padding-left:1em;
 }
+.cover_stats_relative{
+background: rgba(227, 184, 33, .5);
+-webkit-border-top-left-radius: 5px;
+-moz-border-top-left-radius: 5px;
+border-top-left-radius: 5px;
+-webkit-border-top-right-radius: 5px;
+-moz-border-top-right-radius: 5px;
+border-top-right-radius: 5px;
+vertical-align:text-bottom;
+padding-top:3em;
+padding-left:1em;
+}
+.pure-button {
+margin-top: 5px;
+margin-bottom: 5px;
+}
+
+
 .stat_number {
 font-size: 5em;
 margin-bottom: .3em;
