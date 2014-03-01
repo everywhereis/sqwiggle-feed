@@ -1,3 +1,4 @@
 public/lib
 node_modules/
 resources/files/*
+*.DS_STORE
